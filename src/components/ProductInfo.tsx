@@ -16,7 +16,7 @@ interface Props {
 
 const ProductInfo = ({ name, price, rating, discount }: Props) => {
   const avgRating = rating ? rating.count / rating.numUserReviews : null;
-  const discountedPrice = discount && price - price * (discount / 100);
+  const discountedPrice = !!discount && price - price * (discount / 100);
   return (
     <div className='container pt-4 flex flex-col gap-[10px]'>
       <h3 className='font-medium'>{name}</h3>
@@ -29,7 +29,7 @@ const ProductInfo = ({ name, price, rating, discount }: Props) => {
           {NAIRA}
           {price.toLocaleString()}
         </span>
-        {discountedPrice && (
+        {!!discountedPrice && (
           <span className='inline-block -mb-[2px]'>
             {NAIRA}
             {discountedPrice.toLocaleString()}

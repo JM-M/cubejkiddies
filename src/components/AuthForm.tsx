@@ -25,12 +25,16 @@ const AuthForm: React.FC<Props> = ({ isOpen, close }) => {
   switch (authModal.form) {
     case 'sign-up':
       form = <SignUpForm />;
+      break;
     case 're-authenticate':
       form = <ReAuthenticationForm />;
+      break;
     case 'login':
       form = <LoginForm />;
+      break;
     default:
       form = <LoginForm />;
+      break;
   }
   return (
     <IonModal isOpen={isOpen} onWillDismiss={() => close()}>
@@ -44,7 +48,9 @@ const AuthForm: React.FC<Props> = ({ isOpen, close }) => {
           />
         </IonToolbar>
       </IonHeader>
-      <IonContent>{form}</IonContent>
+      <IonContent>
+        <div className='h-screen flex flex-col'>{form}</div>
+      </IonContent>
     </IonModal>
   );
 };

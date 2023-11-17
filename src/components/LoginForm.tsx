@@ -33,25 +33,11 @@ const LoginForm = () => {
   const logginIn = loginMutation.isLoading;
 
   return (
-    <div className='container flex flex-col justify-center'>
+    <div className='container h-fit my-auto'>
       <form onSubmit={handleSubmit(submit)}>
         <h2 className='mb-10 font-medium text-lg text-center'>
           Login to CubeJKiddies
         </h2>
-        {/* <Button
-          fill='outline'
-          color='medium'
-          className='block h-10 mb-5'
-          onClick={loginWithGoogle}
-          loading={loginWithGoogleMutation.isLoading}
-        >
-          <span className='flex items-center justify-center gap-[10px]'>
-            <FcGoogle size={24} /> Log in with Google
-          </span>
-        </Button>
-        <div className='text-xs text-[var(--ion-color-medium)] text-center'>
-          Or with email and password
-        </div> */}
         <Input
           label='Email'
           labelPlacement='floating'
@@ -93,7 +79,7 @@ const LoginForm = () => {
       <div className='mt-10 text-center text-[var(--ion-color-medium)]'>
         New to CubeJKiddies?{' '}
         <span
-          className='text-[var(--ion-color-primary)] font-medium'
+          className='text-[var(--ion-color-primary)] font-medium cursor-pointer'
           onClick={() => openAuthModal('sign-up')}
         >
           Create account

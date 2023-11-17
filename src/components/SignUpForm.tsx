@@ -30,7 +30,7 @@ const SignUpForm = () => {
   const signingUp = createUserMutation.isLoading;
 
   return (
-    <div className='container flex flex-col justify-center'>
+    <div className='container h-fit my-auto'>
       <h2 className='font-medium text-lg text-center'></h2>
       <h2 className='mb-10 font-medium text-lg text-center'>
         Create CubeJKiddies account
@@ -90,7 +90,7 @@ const SignUpForm = () => {
       <div className='mt-10 text-center text-[var(--ion-color-medium)]'>
         Already on CubeJKiddies?{' '}
         <span
-          className='text-[var(--ion-color-primary)] font-medium'
+          className='text-[var(--ion-color-primary)] font-medium cursor-pointer'
           onClick={() => openAuthModal('login')}
         >
           Log in

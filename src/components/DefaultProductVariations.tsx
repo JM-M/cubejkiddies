@@ -57,6 +57,7 @@ const DefaultProductVariations: React.FC<{
               aria-label='Sizes'
               placeholder='Select'
               onIonChange={(ev) => setProductVariant('sizes', ev.detail.value)}
+              className='uppercase'
             >
               {sizes.map((sizeOption: any, i: number) => {
                 const { name } = sizeOption;
@@ -65,7 +66,7 @@ const DefaultProductVariations: React.FC<{
                   <IonSelectOption
                     key={i}
                     value={name}
-                    className={cx({
+                    className={cx('uppercase', {
                       '!text-[var(--ion-color-primary)] !bg-gray-200 dark:!bg-neutral-900':
                         selected,
                     })}

@@ -44,7 +44,7 @@ const CartProduct = ({ product, qty = 1, hideCounter = false }: Props) => {
 
   const variantKeys: string[] = Object.keys(variant).sort();
 
-  const discountedPrice = discount && price - price * (discount / 100);
+  const discountedPrice = !!discount && price - price * (discount / 100);
   const totalPriceForProduct = (
     (discountedPrice || price) * qty
   ).toLocaleString();

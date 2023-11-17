@@ -28,7 +28,7 @@ const AddToCartButton = ({ product, variant, variantValid = false }: Props) => {
     editingCart,
   } = useCart();
 
-  const productOptions = { id: product.id!, variant };
+  const productOptions = { id: product.id!, variant, price: product.price };
 
   const addProduct = () => {
     if (editingCart || !product?.id || !variantValid) return;
