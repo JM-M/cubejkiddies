@@ -121,7 +121,7 @@ const AddToCartButton = ({ product, variant, variantValid = false }: Props) => {
   );
 
   return (
-    <div className='container pt-10'>
+    <div className='pt-10'>
       {!!qty ? (
         <div className='flex gap-3'>
           {counter}
