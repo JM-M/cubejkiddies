@@ -25,7 +25,7 @@ const ProductCard = ({ product }: Props) => {
     image,
     discount,
   } = product;
-  if (objectID === 'fed3d92e-54d2-41f5-b065-6f3e887f4c33') console.log(product);
+
   const { getCategoryFromId } = useCategories();
   const categoryName = getCategoryFromId(category)?.name;
 

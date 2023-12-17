@@ -4,7 +4,7 @@ import ProductCarouselControls from './ProductCarouselControls';
 import ToggleWishlistIcon from './ToggleWishlistIcon';
 import useAuth from '../hooks/useAuth';
 import { getProductImages } from '../hooks/useProductImages';
-import { Product } from '../constants/schemas/product';
+import { Product, ProductAlgoliaRecord } from '../constants/schemas/product';
 
 interface Props {
   product: Product;
@@ -35,12 +35,14 @@ const ProductCarousel: React.FC<Props> = ({ product, hasVariant = false }) => {
       >
         {isLoggedIn && (
           <ToggleWishlistIcon
-            product={{
-              name,
-              price,
-              objectID: id!,
-              image: images[0],
-            }}
+            product={
+              {
+                name,
+                price,
+                objectID: id!,
+                image: images[0],
+              } as ProductAlgoliaRecord
+            }
             className='right-[40px] bottom-[113px] z-10'
           />
         )}

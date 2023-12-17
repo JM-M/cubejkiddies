@@ -20,9 +20,11 @@ const WishlistItem = ({ name, price, image, id }: WishlistItemType) => {
       </div>
       <div className='flex flex-col gap-3 mr-auto text-gray-500'>
         <h4 className='text-gray-900 font-medium'>{name}</h4>
-        <span className=''>
-          {NAIRA} {price.toLocaleString()}
-        </span>
+        {
+          <span className=''>
+            {NAIRA} {price!.toLocaleString()}
+          </span>
+        }
       </div>
       <div>
         {removeWishlistItemMutation.isLoading ? (
