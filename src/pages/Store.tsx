@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 const Store: React.FC = () => {
   return (
     <IonRouterOutlet>
-      <IonContent>
+      <IonContent className='store-content'>
         <div className='flex flex-col h-full'>
           <Route path='/:tab(store)/orders/:orderId' component={Order} />
           <Route path='/:tab(store)/category' component={Category} />

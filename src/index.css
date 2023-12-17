@@ -71,6 +71,10 @@ body {
   background-color: white;
 }
 
+ion-content.checkout-content::part(scroll) {
+  @apply h-fit;
+}
+
 ion-searchbar {
   --box-shadow: none !important;
 }

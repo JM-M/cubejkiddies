@@ -18,7 +18,7 @@ const Checkout: React.FC = () => {
   const { cartSize } = useCart();
 
   return (
-    <IonContent className='flex flex-col min-h-screen'>
+    <IonContent className='flex flex-col min-h-screen checkout-content'>
       <PageHeader />
       <div className='max-w-[500px] flex flex-col mx-auto'>
         {!!cartSize ? (
