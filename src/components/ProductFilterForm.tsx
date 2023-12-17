@@ -14,8 +14,6 @@ type Range = { max: number; min: number };
 interface Props {
   filter: { price: Range; discounted: boolean };
   setFilter: Function;
-  minPrice: number;
-  maxPrice: number;
   close: Function;
   category: string;
 }
@@ -23,21 +21,12 @@ interface Props {
 const ProductFilterForm: React.FC<Props> = ({
   filter,
   setFilter,
-  minPrice = 0,
-  maxPrice = 0,
   close = () => null,
-  category = '/',
 }) => {
   const schema = object({
     price: object({
-      min: number()
-        .required('Minimum price is required')
-        .min(minPrice, `Minimum price cannot be less than ${minPrice}`)
-        .max(maxPrice, `Maximum price cannot be more than ${maxPrice}`),
-      max: number()
-        .required('Maximum price is required')
-        .min(minPrice, `Minimum price cannot be less than ${minPrice}`)
-        .max(maxPrice, `Maximum price cannot be more than ${maxPrice}`),
+      min: number().required('Minimum price is required'),
+      max: number().required('Maximum price is required'),
     }),
     discounted: boolean(),
   });
@@ -50,7 +39,6 @@ const ProductFilterForm: React.FC<Props> = ({
     formState: { errors },
     handleSubmit,
     setValue,
-    watch,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -66,17 +54,13 @@ const ProductFilterForm: React.FC<Props> = ({
     close();
   };
 
-  if (isNaN(minPrice) || isNaN(maxPrice)) return <PageLoader />;
-
   const priceErrorText =
     errors.price?.min?.message || errors.price?.min?.message;
 
   return (
     <form className='px-5 mt-auto' onSubmit={handleSubmit(submit)}>
       <div className='my-5'>
-        <IonLabel className='font-medium'>
-          Price range ({minPrice} - {maxPrice})
-        </IonLabel>
+        <IonLabel className='font-medium'>Price range</IonLabel>
         <div className='flex justify-between items-center -ml-4 text-gray-500'>
           <Input
             type='number'

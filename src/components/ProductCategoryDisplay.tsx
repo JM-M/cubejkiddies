@@ -75,13 +75,6 @@ const ProductCategoryDisplay = ({
     options: { filters, facets: 'price' },
   });
 
-  // to get facets stats
-  const facetsQuery = useAlgoliaSearch({
-    index: 'products',
-    pageSize: 1,
-    options: { facets: 'price' },
-  });
-
   const filterModal = useRef<HTMLIonModalElement>(null);
 
   const closeModal = () => {
@@ -89,25 +82,16 @@ const ProductCategoryDisplay = ({
   };
 
   const { allDocs: products } = data;
-  const { pages = [] } = facetsQuery?.data || {};
-  const facetStats = !!pages.length && pages[0].facets_stats;
-  const minPrice = facetStats?.price?.min;
-  const maxPrice = facetStats?.price?.max;
 
   useEffect(() => {
     setQueryFilter({
-      price: { min: minPrice, max: maxPrice },
       discounted: false,
     });
-  }, [category, minPrice, maxPrice]);
+  }, [category]);
 
   return (
     <>
-      <IonModal
-        ref={filterModal}
-        trigger='filter-open-button'
-        // initialBreakpoint={0.5}
-      >
+      <IonModal ref={filterModal} trigger='filter-open-button'>
         <IonHeader className='ion-no-border'>
           <IonToolbar>
             <IonButtons slot='start'>
@@ -121,8 +105,6 @@ const ProductCategoryDisplay = ({
         <IonContent>
           <div className='flex flex-col'>
             <ProductFilterForm
-              minPrice={minPrice}
-              maxPrice={maxPrice}
               filter={queryFilter}
               setFilter={setQueryFilter}
               close={closeModal}
