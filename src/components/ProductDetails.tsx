@@ -24,7 +24,9 @@ const ProductDetails = ({ id }: Props) => {
 
   const {
     name,
+    wholesaleOnly,
     price,
+    moqs,
     description,
     variations = {},
     rating,
@@ -60,7 +62,7 @@ const ProductDetails = ({ id }: Props) => {
 
   return (
     <>
-      <div className='container'>
+      <div>
         <div className='md:flex'>
           <div className='md:flex-1 md:max-w-[60%]'>
             <ProductCarousel
@@ -72,6 +74,8 @@ const ProductDetails = ({ id }: Props) => {
             <ProductInfo
               name={name}
               price={price}
+              moqs={moqs}
+              wholesaleOnly={wholesaleOnly}
               rating={rating}
               discount={discount}
             />
@@ -90,7 +94,7 @@ const ProductDetails = ({ id }: Props) => {
         </div>
         <ProductReviews />
       </div>
-      <div className='container pb-10'>
+      <div className='pb-10'>
         <SimilarProducts categoryId={category} />
       </div>
     </>

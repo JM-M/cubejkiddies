@@ -10,8 +10,10 @@ import useCollectionCount from './useCollectionCount';
 export interface WishlistItem {
   id: string;
   name: string;
-  price: number;
+  price?: number;
   image?: string;
+  wholesaleOnly?: boolean;
+  moqs?: { minQuantity: number; price: number }[];
 }
 
 interface Props {

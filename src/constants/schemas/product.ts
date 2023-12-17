@@ -1,4 +1,4 @@
-import { object, string, number, array, mixed, InferType } from 'yup';
+import { object, string, number, array, mixed, boolean, InferType } from 'yup';
 
 const productSchema = object({
   id: string(),
@@ -6,7 +6,14 @@ const productSchema = object({
   category: string().required(),
   description: string().required(),
   weight: number().required(),
+  wholesaleOnly: boolean(),
   price: number().required(),
+  moqs: array().of(
+    object({
+      minQuantity: number().required(),
+      price: number().required(),
+    })
+  ),
   discount: number().required().min(1).max(100),
   variations: object(),
   stocks: array()
@@ -33,7 +40,12 @@ export type ProductAlgoliaRecord = {
   image: string;
   name: string;
   objectID: string;
-  price: number;
+  wholesaleOnly: boolean;
+  price?: number;
+  moqs?: {
+    minQuantity: number;
+    price: number;
+  }[];
   stocks: string[];
   variations: { [key: string]: string };
   discount?: number;

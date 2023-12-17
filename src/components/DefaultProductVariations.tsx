@@ -11,10 +11,13 @@ const DefaultProductVariations: React.FC<{
 }> = ({ color, colors, size, sizes, setProductVariant = () => null }) => {
   const { width } = useScreenSize();
   const ionSelectInterface = width < 768 ? 'action-sheet' : undefined;
+
+  if (!sizes?.length && !color?.length) return null;
+
   return (
     <>
       {!!colors?.length && (
-        <div className='block'>
+        <div className='block pt-[30px]'>
           <IonItem>
             <IonSelect
               interface={ionSelectInterface}

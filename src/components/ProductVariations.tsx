@@ -8,7 +8,7 @@ const ProductVariations: React.FC<{
 }> = ({ variant = {}, variations, setProductVariant = () => null }) => {
   const { colors, sizes, ...rest } = variations;
   return (
-    <div className='grid grid-cols-2 gap-4 pt-[30px]'>
+    <div className='grid grid-cols-2 gap-4'>
       <DefaultProductVariations
         color={variant.colors}
         colors={colors}

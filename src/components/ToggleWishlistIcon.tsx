@@ -3,9 +3,10 @@ import { heartOutline, heart } from 'ionicons/icons';
 import cx from 'classnames';
 import useWishlist, { WishlistItem } from '../hooks/useWishlist';
 import useAuth from '../hooks/useAuth';
+import { ProductAlgoliaRecord } from '../constants/schemas/product';
 
 interface Props {
-  product: { objectID: string; name: string; price: number; image?: string };
+  product: ProductAlgoliaRecord;
   className?: any;
   [x: string]: any;
 }
@@ -13,7 +14,7 @@ interface Props {
 const ToggleWishlistIcon = ({ product, className = {}, ...props }: Props) => {
   const { isLoggedIn } = useAuth();
 
-  const { objectID, name, price, image } = product;
+  const { objectID, name, price, wholesaleOnly, moqs, image } = product;
 
   const {
     addWishlistItem,
@@ -33,7 +34,14 @@ const ToggleWishlistIcon = ({ product, className = {}, ...props }: Props) => {
 
   const toggle = (e: any) => {
     disableEvent(e);
-    const wishlistItem: WishlistItem = { id: objectID!, name, price, image };
+    const wishlistItem: WishlistItem = {
+      id: objectID!,
+      name,
+      price,
+      wholesaleOnly,
+      moqs,
+      image,
+    };
     if (isInWishlist) return removeWishlistItem();
     addWishlistItem(wishlistItem);
   };

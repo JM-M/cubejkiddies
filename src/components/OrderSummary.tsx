@@ -20,6 +20,8 @@ const OrderSummary = () => {
   const numProducts = products.length;
   const expandable = numProducts > DEFAULT_SUMMARY_SIZE;
 
+  console.log(products);
+
   return (
     <div className='container'>
       <h3 className='font-medium mb-5 text-lg'>
