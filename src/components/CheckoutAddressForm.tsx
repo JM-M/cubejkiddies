@@ -1,14 +1,7 @@
 import { useEffect } from 'react';
-import {
-  IonItem,
-  IonInput,
-  IonButton,
-  IonTextarea,
-  IonSpinner,
-} from '@ionic/react';
+import { IonButton, IonSpinner } from '@ionic/react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import cx from 'classnames';
 import CountrySelector from './CountrySelector';
 import StateSelector from './StateSelector';
 import CitySelector from './CitySelector';

@@ -25,7 +25,7 @@ const CountrySelector = ({
   const disabled = !countriesQuery.data?.length;
 
   const countryOptions: CountryOption[] =
-    loading || !Array.isArray(countriesQuery.data)
+    loading || !countriesQuery.data?.length
       ? []
       : countriesQuery.data.map(
           ({
