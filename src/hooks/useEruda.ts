@@ -8,11 +8,11 @@ const useEruda = () => {
     // load eruda
     (function () {
       var src = '//cdn.jsdelivr.net/npm/eruda';
-      // if (
-      //   !/eruda=true/.test(window.location as any) &&
-      //   localStorage.getItem('active-eruda') != 'true'
-      // )
-      //   return;
+      if (
+        !/eruda=true/.test(window.location as any) &&
+        localStorage.getItem('active-eruda') != 'true'
+      )
+        return;
       const script1 = document.createElement('script');
       script1.type = 'text/javascript';
       script1.src = src;
