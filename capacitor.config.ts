@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'a77831ad',
-  appName: 'user',
+  appName: 'Cube J Empire',
   webDir: 'dist',
   server: {
     androidScheme: 'https',
