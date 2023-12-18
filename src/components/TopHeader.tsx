@@ -27,7 +27,7 @@ const TopHeader = () => {
   const { cartSize } = useCart();
 
   return (
-    <IonHeader className='ion-no-border ion-no-padding'>
+    <IonHeader className='ion-no-padding'>
       <IonToolbar className='container overflow-visible'>
         <IonButtons slot='start'>
           <IonMenuButton className='relative right-5' />
